@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - News
 struct NewsResponse: Codable {
-    let pagination: Pagination?
+    var pagination: Pagination?
     var data: [Article]?
 }
 

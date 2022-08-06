@@ -41,8 +41,7 @@ final class HomeViewControllerModel: HomeDataModelProtocol {
         isLoadingList = true
         service.fetchNews(currentPage: currentPage) { [weak self] result, error in
             if let newsResponse = result, let articles = newsResponse.data {
-                self?.news = newsResponse
-                self?.news?.data! += articles
+                self?.appendToArrayOnPagination(newsResponse, articles)
                 self?.delegate?.updateViewOnSuccess()
             }else {
                 self?.delegate?.updateViewOnFailure(error)
@@ -51,3 +50,20 @@ final class HomeViewControllerModel: HomeDataModelProtocol {
     }
     
 }
+
+// MARK: append to array logic
+
+fileprivate extension HomeViewControllerModel {
+    
+    func appendToArrayOnPagination(_ newsResponse: NewsResponse, _ articles: [Article]) {
+        if self.currentPage >= 1 {
+            self.news?.pagination = newsResponse.pagination
+            self.news?.data! += articles
+        }else {
+            self.news = newsResponse
+        }
+    }
+    
+}
+
+

@@ -17,4 +17,8 @@ struct Constants {
         static let path = "v1/news"
     }
     
+    struct NavBar {
+        static let title = "News"
+    }
+    
 }

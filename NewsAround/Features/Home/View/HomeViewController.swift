@@ -13,16 +13,30 @@ final class HomeViewController: BaseTableViewSearchController<NewsDisplayCell, A
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.delegate = self
-        viewModel.fetchNewsData()
-        self.title = "News"
+        setNavTitle()
+        setViewUpdateDelegate()
+        fetchNews()
     }
     
     override func handleRefresh(_ refreshControl: UIRefreshControl) {
         viewModel.currentPage = 0
-        viewModel.fetchNewsData()
+        fetchNews()
     }
 
+}
+
+// MARK: Setup
+
+fileprivate extension HomeViewController {
+   
+    func setViewUpdateDelegate() {
+        viewModel.delegate = self
+    }
+    
+    func setNavTitle() {
+        self.title = Constants.NavBar.title
+    }
+    
 }
 
 // MARK: Pagination scroll
@@ -35,6 +49,7 @@ extension HomeViewController {
         if ((heightWithY > scrollContentSize)
             && !self.viewModel.isLoadingList)
         {
+            showLoader(flag: true)
             self.viewModel.isLoadingList = true
             self.viewModel.currentPage += 1
         }
@@ -50,10 +65,12 @@ extension HomeViewController: HomeViewModelProtocol {
         refreshController.endRefreshing()
         updateTableView()
         viewModel.isLoadingList = false
+        showLoader(flag: false)
     }
     
     func updateViewOnFailure(_ error: NetworkError?) {
         debugPrint("Failed")
+        showLoader(flag: false)
     }
     
 }
@@ -61,6 +78,11 @@ extension HomeViewController: HomeViewModelProtocol {
 // MARK: Update data to model
 
 fileprivate extension HomeViewController {
+    
+    func fetchNews() {
+        showLoader(flag: true)
+        viewModel.fetchNewsData()
+    }
     
     /**
      This method is used to update the model and model has didSet of tableView reload

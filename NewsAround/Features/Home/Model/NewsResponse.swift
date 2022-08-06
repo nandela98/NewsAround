@@ -30,6 +30,30 @@ struct Article: Codable, Searchable {
         case url, source, image, category, language, country
         case publishedAt = "published_at"
     }
+    
+    init(author: String? = "",
+         title: String? = "",
+         description: String? = "",
+         url: String? = "",
+         source: String? = "",
+         image: String? = "",
+         category: String? = "",
+         language: String? = "",
+         country: String? = "",
+         publishedAt: String? = "")
+    {
+        self.author = author
+        self.title = title
+        self.description = description
+        self.url = url
+        self.source = source
+        self.image = image
+        self.category = category
+        self.language = language
+        self.country = country
+        self.publishedAt = publishedAt
+    }
+    
 }
 
 // MARK: - Pagination

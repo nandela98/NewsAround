@@ -8,7 +8,6 @@
 import Foundation
 
 protocol NetworkingManagerProtocol {
-    static func makeRequest<S: Codable>(session: URLSession, request: URLRequest, model: S.Type, onCompletion: @escaping(S?, NetworkError?) -> ())
     static func makeGetRequest<T: Codable> (path: String, queries: Parameters, onCompletion: @escaping(T?, NetworkError?) -> ())
 }
 
@@ -32,11 +31,25 @@ enum NetworkingManager: NetworkingManagerProtocol {
         }
     }
     
+    /// Generic GET Request
+    internal static func makeGetRequest<T: Codable> (path: String,
+                                                     queries: Parameters,
+                                                     onCompletion: @escaping(T?, NetworkError?) -> ())
+    {
+        let session = URLSession.shared
+        let request: URLRequest = Self.getAPI(path: path, data: queries).asURLRequest()
+        debugPrint(request.url as Any)
+        makeRequest(session: session, request: request, model: T.self) { (result, error) in
+            onCompletion(result, error)
+        }
+    }
+    
     
     // MARK:- functions
     fileprivate func addHeaders(request: inout URLRequest) {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
     }
+    
     
     fileprivate func asURLRequest() -> URLRequest {
         /// appends the path passed to either of the enum case with the base URL
@@ -56,7 +69,11 @@ enum NetworkingManager: NetworkingManagerProtocol {
     }
     
     /// This function calls the URLRequest passed to it, maps the result and returns it. It is called by GET and POST.
-    internal static func makeRequest<S: Codable>(session: URLSession, request: URLRequest, model: S.Type, onCompletion: @escaping(S?, NetworkError?) -> ()) {
+    internal static func makeRequest<S: Codable>(session: URLSession,
+                                                 request: URLRequest,
+                                                 model: S.Type,
+                                                 onCompletion: @escaping(S?, NetworkError?) -> ())
+    {
         session.dataTask(with: request) { data, response, error in
             guard error == nil, let responseData = data else { onCompletion(nil, NetworkError.apiFailure) ; return }
             do {
@@ -83,15 +100,5 @@ enum NetworkingManager: NetworkingManagerProtocol {
         }.resume()
     }
     
-    /// Generic GET Request
-    internal static func makeGetRequest<T: Codable> (path: String, queries: Parameters, onCompletion: @escaping(T?, NetworkError?) -> ()) {
-        let session = URLSession.shared
-        let request: URLRequest = Self.getAPI(path: path, data: queries).asURLRequest()
-        debugPrint(request.url ?? nil)
-        makeRequest(session: session, request: request, model: T.self) { (result, error) in
-            onCompletion(result, error)
-        }
-    }
-
 }
 

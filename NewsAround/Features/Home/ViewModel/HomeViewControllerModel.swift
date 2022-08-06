@@ -18,10 +18,12 @@ protocol HomeDataModelProtocol {
     var currentPage : Int { get set }
     var delegate: HomeViewModelProtocol? { get set }
     var isLoadingList : Bool { get set }
+    var service: NewsAPIServiceProtocol { get set }
 }
 
 final class HomeViewControllerModel: HomeDataModelProtocol {
-
+    
+    var service: NewsAPIServiceProtocol
     var news          : NewsResponse?
     var currentPage   : Int = 0 {
         didSet {
@@ -31,9 +33,13 @@ final class HomeViewControllerModel: HomeDataModelProtocol {
     weak var delegate: HomeViewModelProtocol?
     var isLoadingList : Bool = false
     
+    init(service: NewsAPIServiceProtocol = NewsAPIService()) {
+        self.service = service
+    }
+    
     func fetchNewsData() {
         isLoadingList = true
-        NetworkingManager.makeGetRequest(path: "v1/news", queries: ["access_key" : "203456028f8657ddae1de51b4912fc52", "offset":currentPage, "limit":10, "countries": NewsCountry.ind.rawValue, "languages": NewsLanguage.en]) { [weak self] (result: NewsResponse?, error)  in
+        service.fetchNews(currentPage: currentPage) { [weak self] result, error in
             if let newsResponse = result, let articles = newsResponse.data {
                 self?.news = newsResponse
                 self?.news?.data! += articles
@@ -43,6 +49,5 @@ final class HomeViewControllerModel: HomeDataModelProtocol {
             }
         }
     }
-
     
 }

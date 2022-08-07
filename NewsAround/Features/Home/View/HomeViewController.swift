@@ -9,7 +9,16 @@ import UIKit
 
 final class HomeViewController: BaseTableViewSearchController<NewsDisplayCell, Article> {
 
-    var viewModel: HomeDataModelProtocol = HomeViewControllerModel()
+    var viewModel: HomeDataModelProtocol
+    
+    init(viewModel: HomeDataModelProtocol = HomeViewControllerModel()) {
+        self.viewModel = viewModel
+        super.init(style: .plain)
+    }
+    
+    required init?(coder: NSCoder) {
+        return nil
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +79,7 @@ extension HomeViewController: HomeViewModelProtocol {
     
     func updateViewOnFailure(_ error: NetworkError?) {
         debugPrint("Failed")
+        refreshController.endRefreshing()
         showLoader(flag: false)
     }
     

@@ -15,7 +15,12 @@ class HomeViewControllerTests: XCTestCase {
     override func setUp() {
         homeController = HomeViewController()
     }
-
+    
+    func test_initWithDecoder() {
+        let controller = HomeViewController(coder: NSCoder())
+        XCTAssertNil(controller)
+    }
+    
     override func tearDown() {
         homeController = nil
     }

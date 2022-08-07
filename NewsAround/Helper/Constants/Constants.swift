@@ -10,7 +10,7 @@ import Foundation
 struct Constants {
     
     struct Auth {
-        static let key = "935124e8b671a0b26cff869f81b0369b"//"203456028f8657ddae1de51b4912fc52"
+        static let key = "7e74b4473d5d54409fc0a09f62f605b2"
     }
     
     struct Url {

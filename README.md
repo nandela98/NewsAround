@@ -10,10 +10,10 @@
 * [Setup](#setup)
 * [Libraries](#libraries)
 * [Screenshots](#screenshots)
-* [App Video](#appVideo)
+* [AppVideo](#appVideo)
 
 ## Description
-A view that shows all news list. It load more news on scroll and refreshes the news on pull or drag the list view. And also, it helps to search the news title using Search Bar.
+A view that shows all the news list from https://mediastack.com. It load more news on scroll and refreshes the news on pull or drag the list view. And also, it helps to search the news title using Search Bar.
 
 ## Features
 It displays a list of users from the JSON file
@@ -21,6 +21,11 @@ It displays a list of users from the JSON file
 * Pull to refresh
 * Pagination(Load more on scroll)
 * It is basically a one pager app.
+
+## Setup
+To run this project, install Xcode and open the NewsAround.xcodeproj file from the folder. 
+
+Note: For the API Configuration, please generate free access key from https://mediastack.com/signup/free and replace it in Constants file.
 
 ## Technologies
 Project is created with:
@@ -44,12 +49,9 @@ Created Generic clases for:
 ## Libraries
 * No 3rd Party libraries added
 
-## Setup
-To run this project, install Xcode and open the NewsAround.xcodeproj file from the folder
-
 ## Screenshots
 <img src="https://user-images.githubusercontent.com/9032373/183286482-d1ef3984-6de9-4705-b83d-f13bfca05729.png" width="320" height="568"> 
 <img src="https://user-images.githubusercontent.com/9032373/183286517-c5851c75-30f0-42c3-bfa7-3d7eed9bf14e.png" width="320" height="568"> 
 
-## App Video
+## AppVideo
 <img src="https://user-images.githubusercontent.com/9032373/183286734-124ba4dc-31ea-4e46-a595-95e32398ae66.mov" width="320" height="568"> 

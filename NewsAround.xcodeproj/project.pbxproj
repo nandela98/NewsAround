@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4A21B276289CA81B00E25C9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A21B275289CA81B00E25C9D /* AppDelegate.swift */; };
-		4A21B278289CA81B00E25C9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A21B277289CA81B00E25C9D /* SceneDelegate.swift */; };
 		4A21B27A289CA81B00E25C9D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A21B279289CA81B00E25C9D /* HomeViewController.swift */; };
 		4A21B27F289CA82100E25C9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A21B27E289CA82100E25C9D /* Assets.xcassets */; };
 		4A21B282289CA82100E25C9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A21B280289CA82100E25C9D /* LaunchScreen.storyboard */; };
@@ -24,6 +23,7 @@
 		4A21B2C7289CEF2500E25C9D /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A21B2C6289CEF2500E25C9D /* BaseTableViewCell.swift */; };
 		4A21B2C9289CEF8300E25C9D /* NewsDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A21B2C8289CEF8300E25C9D /* NewsDisplayCell.swift */; };
 		4A21B2CB289CEFFA00E25C9D /* UITableView+Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A21B2CA289CEFFA00E25C9D /* UITableView+Generic.swift */; };
+		4A4E9A23289F604300DFB912 /* HomeViewModelProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E9A22289F604300DFB912 /* HomeViewModelProtocolStub.swift */; };
 		4AA448E3289E49B20051A21D /* UIViewController+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA448E2289E49B20051A21D /* UIViewController+Loader.swift */; };
 		4AC89284289CF20200E439B3 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC89283289CF20200E439B3 /* Reusable.swift */; };
 		4AC89286289CF4DF00E439B3 /* GenericTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC89285289CF4DF00E439B3 /* GenericTableViewDataSource.swift */; };
@@ -60,7 +60,6 @@
 /* Begin PBXFileReference section */
 		4A21B272289CA81B00E25C9D /* NewsAround.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsAround.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A21B275289CA81B00E25C9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4A21B277289CA81B00E25C9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4A21B279289CA81B00E25C9D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4A21B27E289CA82100E25C9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A21B281289CA82100E25C9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,6 +78,7 @@
 		4A21B2C6289CEF2500E25C9D /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		4A21B2C8289CEF8300E25C9D /* NewsDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDisplayCell.swift; sourceTree = "<group>"; };
 		4A21B2CA289CEFFA00E25C9D /* UITableView+Generic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Generic.swift"; sourceTree = "<group>"; };
+		4A4E9A22289F604300DFB912 /* HomeViewModelProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocolStub.swift; sourceTree = "<group>"; };
 		4AA448E2289E49B20051A21D /* UIViewController+Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Loader.swift"; sourceTree = "<group>"; };
 		4AC89283289CF20200E439B3 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		4AC89285289CF4DF00E439B3 /* GenericTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -151,7 +151,6 @@
 				4A21B2A9289CAF7200E25C9D /* Protocols */,
 				4A21B2A6289CAF7200E25C9D /* Resources */,
 				4A21B275289CA81B00E25C9D /* AppDelegate.swift */,
-				4A21B277289CA81B00E25C9D /* SceneDelegate.swift */,
 				4A21B27E289CA82100E25C9D /* Assets.xcassets */,
 				4A21B280289CA82100E25C9D /* LaunchScreen.storyboard */,
 				4A21B283289CA82100E25C9D /* Info.plist */,
@@ -321,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				4AE9382E289E98CC00C33501 /* NewsAPIServiceProtocolStub.swift */,
+				4A4E9A22289F604300DFB912 /* HomeViewModelProtocolStub.swift */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -523,7 +523,6 @@
 				4AC89286289CF4DF00E439B3 /* GenericTableViewDataSource.swift in Sources */,
 				4A21B2C5289CEE3F00E25C9D /* HomeViewControllerModel.swift in Sources */,
 				4AC8928C289CFA3000E439B3 /* NewsAPIService.swift in Sources */,
-				4A21B278289CA81B00E25C9D /* SceneDelegate.swift in Sources */,
 				4AEC6DA0289D4F51002D7657 /* NetworkUtilities.swift in Sources */,
 				4A21B2CB289CEFFA00E25C9D /* UITableView+Generic.swift in Sources */,
 				4AA448E3289E49B20051A21D /* UIViewController+Loader.swift in Sources */,
@@ -541,6 +540,7 @@
 				4AE93831289E98F400C33501 /* HomeViewControllerModelTests.swift in Sources */,
 				4A21B28D289CA82200E25C9D /* NewsAroundTests.swift in Sources */,
 				4AE93826289E4F6F00C33501 /* HomeViewControllerTests.swift in Sources */,
+				4A4E9A23289F604300DFB912 /* HomeViewModelProtocolStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

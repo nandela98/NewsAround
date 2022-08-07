@@ -10,9 +10,10 @@
 * [Setup](#setup)
 * [Libraries](#libraries)
 * [Screenshots](#screenshots)
+* [App Video](#appVideo)
 
 ## Description
-A view that shows all news list. Load more news on scroll. We can search news title using Search Bar.
+A view that shows all news list. It load more news on scroll and refreshes the news on pull or drag the list view. And also, it helps to search the news title using Search Bar.
 
 ## Features
 It displays a list of users from the JSON file
@@ -47,11 +48,8 @@ Created Generic clases for:
 To run this project, install Xcode and open the NewsAround.xcodeproj file from the folder
 
 ## Screenshots
-
-![splash_screen]()
-![home_screen]()
-![home_search]()
+<img src="https://user-images.githubusercontent.com/9032373/183286482-d1ef3984-6de9-4705-b83d-f13bfca05729.png" width="320" height="568"> 
+<img src="https://user-images.githubusercontent.com/9032373/183286517-c5851c75-30f0-42c3-bfa7-3d7eed9bf14e.png" width="320" height="568"> 
 
 ## App Video
-
-![app_video]()
+<img src="https://user-images.githubusercontent.com/9032373/183286734-124ba4dc-31ea-4e46-a595-95e32398ae66.mov" width="320" height="568"> 
